@@ -55,24 +55,24 @@ const router = createRouter({
 });
 
 /**
- * 🔐 Global Auth Guard
+ *  Global Auth Guard
  */
 router.beforeEach((to) => {
   const auth = useAuthStore();
 
-  // ❌ Not logged in & trying to access protected route
+  //  Not logged in & trying to access protected route
   if (to.meta.requiresAuth && !auth.accessToken) {
     return { name: "Users" };
   }
 
-  // 🚫 Logged-in users should not go back to login
+  //  Logged-in users should not go back to login
   if (to.name === "Login" && auth.accessToken) {
     return { name: "Users" };
   }
 });
 
 /**
- * 🔄 Auto logout when token removed (multi-tab support)
+ *  Auto logout when token removed (multi-tab support)
  */
 window.addEventListener("storage", (event) => {
   if (event.key === "accessToken" && !event.newValue) {

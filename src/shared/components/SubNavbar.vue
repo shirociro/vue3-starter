@@ -16,9 +16,8 @@
 
 <script setup>
 const items = [
-  { path: "/tasks", icon: "bi bi-list-check", label: "Tasks" },
-  { path: "/knowledgebase", icon: "bi bi-book", label: "Knowledgebase" },
   { path: "/users", icon: "bi bi-people", label: "Users" },
+  { path: "/stacks", icon: "bi bi-book", label: "Stacks" },
 ];
 </script>
 
@@ -28,7 +27,6 @@ const items = [
   color: white;
   padding: 0.6rem 0.75rem;
   position: relative;
-  /*  removed z-index */
   border-radius: 0; /* no rounded edges since it's a subbar */
 }
 
